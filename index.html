@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Трекер воды</title>
+  <title>Трекер недовольств Елены</title>
   <style>
     body { font-family: -apple-system, "Segoe UI", sans-serif; display: flex;
-           min-height: 100vh; margin: 0; align-items: center; justify-content: center;
-           background: linear-gradient(rgba(8, 47, 73, .12), rgba(8, 47, 73, .2)),
-           url("assets/beach.jpg") center / cover no-repeat fixed; color: #164e63; }
+           min-height: 100vh; margin: 0; padding: 5vw 4vw 5vw 71vw; box-sizing: border-box;
+           align-items: center; justify-content: center;
+           background: #a8a29e; color: #164e63; }
+    body::before { content: ""; position: fixed; inset: 0 auto 0 0; width: 68%;
+                   background: url("assets/monkey.jpg") center / cover no-repeat; }
     main { position: relative; z-index: 1; text-align: center; padding: 2rem;
-           background: rgba(255, 255, 255, .9); border: 1px solid rgba(255, 255, 255, .75);
+           background: rgba(255, 255, 255, .38); border: 1px solid rgba(255, 255, 255, .65);
            border-radius: 1.5rem; box-shadow: 0 1rem 3rem rgba(8, 47, 73, .2);
-           backdrop-filter: blur(.5rem); }
+           backdrop-filter: blur(1rem); }
     h1 { font-size: 2rem; margin-bottom: .5rem; }
     p  { color: #475569; }
     .drop { font-size: 3rem; margin-bottom: .5rem; }
@@ -22,27 +24,33 @@
     button.secondary { background: #fef3c7; color: #92400e; }
     button:active { transform: scale(.97); }
     #count { font-size: 3rem; margin: 1rem 0; }
+    @media (max-width: 600px) {
+      body { padding: 1rem; align-items: flex-end; justify-content: center; }
+      body::before { width: 100%; height: 58%; background-position: center; }
+      main { width: 100%; padding: 1.25rem; box-sizing: border-box; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <div class="drop" aria-hidden="true">💧</div>
-    <h1>Трекер воды</h1>
-    <p>Сколько стаканов воды ты выпил сегодня?</p>
+    <div class="drop" aria-hidden="true">😒</div>
+    <h1>Трекер недовольств Елены</h1>
+    <p>Сколько раз Елена была недовольна сегодня?</p>
     <div id="count">0</div>
     <div class="buttons">
-      <button onclick="decrease()" aria-label="Убрать один стакан">−</button>
-      <button onclick="increase()" aria-label="Добавить один стакан">+</button>
+      <button onclick="decrease()" aria-label="Убрать одно недовольство">−</button>
+      <button onclick="increase()" aria-label="Добавить одно недовольство">+</button>
       <button class="secondary" onclick="reset()" aria-label="Начать день заново">↺</button>
     </div>
     <script>
-      const savedCount = Number(localStorage.getItem('counter'));
+      const storageKey = 'elena-complaints';
+      const savedCount = Number(localStorage.getItem(storageKey));
       let count = Number.isFinite(savedCount) && savedCount >= 0 ? savedCount : 0;
       const counter = document.getElementById('count');
 
       function showCount() {
         counter.textContent = count;
-        localStorage.setItem('counter', count);
+        localStorage.setItem(storageKey, count);
       }
 
       function increase() {
