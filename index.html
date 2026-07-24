@@ -31,11 +31,13 @@
       <button class="secondary" onclick="reset()" aria-label="Сбросить счётчик">↺</button>
     </div>
     <script>
-      let count = 0;
+      const savedCount = Number(localStorage.getItem('counter'));
+      let count = Number.isFinite(savedCount) && savedCount >= 0 ? savedCount : 0;
       const counter = document.getElementById('count');
 
       function showCount() {
         counter.textContent = count;
+        localStorage.setItem('counter', count);
       }
 
       function increase() {
@@ -52,6 +54,8 @@
         count = 0;
         showCount();
       }
+
+      showCount();
     </script>
   </main>
 </body>
