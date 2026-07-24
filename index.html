@@ -7,16 +7,19 @@
   <style>
     body { font-family: -apple-system, "Segoe UI", sans-serif; display: flex;
            min-height: 100vh; margin: 0; align-items: center; justify-content: center;
-           background: linear-gradient(135deg, #dbeafe, #ecfeff); color: #0f172a; }
-    main { text-align: center; padding: 2rem; background: #fff; border-radius: 1.5rem;
-           box-shadow: 0 1rem 3rem rgba(14, 116, 144, .15); }
+           background: linear-gradient(rgba(8, 47, 73, .12), rgba(8, 47, 73, .2)),
+           url("assets/beach.jpg") center / cover no-repeat fixed; color: #164e63; }
+    main { position: relative; z-index: 1; text-align: center; padding: 2rem;
+           background: rgba(255, 255, 255, .9); border: 1px solid rgba(255, 255, 255, .75);
+           border-radius: 1.5rem; box-shadow: 0 1rem 3rem rgba(8, 47, 73, .2);
+           backdrop-filter: blur(.5rem); }
     h1 { font-size: 2rem; margin-bottom: .5rem; }
     p  { color: #475569; }
     .drop { font-size: 3rem; margin-bottom: .5rem; }
     .buttons { display: flex; gap: .75rem; justify-content: center; }
     button { font-size: 1.25rem; min-width: 3.5rem; padding: .65rem 1rem; border: none;
-             border-radius: .75rem; background: #0891b2; color: #fff; cursor: pointer; }
-    button.secondary { background: #e2e8f0; color: #334155; }
+             border-radius: .75rem; background: #0284c7; color: #fff; cursor: pointer; }
+    button.secondary { background: #fef3c7; color: #92400e; }
     button:active { transform: scale(.97); }
     #count { font-size: 3rem; margin: 1rem 0; }
   </style>
