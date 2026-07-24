@@ -10,7 +10,7 @@
 ## Где живёт этот проект (заполни при первом деплое и поддерживай)
 
 - Репозиторий GitHub: `chn7ps695v-cloud/vibecoding_first_site`
-- Сайт на Netlify: `<имя-проекта>` → `https://<...>.netlify.app` (или «ещё не публиковался»)
+- Сайт на Netlify: `vibecoding-first-site` → `https://vibecoding-first-site.netlify.app`
 - Как публикуется: `netlify deploy --prod --dir .` из корня (или «авто-деплой из main»)
 
 ## Главный ритм (соблюдай всегда)
